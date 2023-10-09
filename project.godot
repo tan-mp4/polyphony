@@ -11,12 +11,17 @@ config_version=5
 [application]
 
 config/name="polyphony"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="polyphony"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [rendering]
 
