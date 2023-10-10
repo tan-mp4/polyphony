@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwl7wyd0ypti6"]
+[gd_scene load_steps=5 format=3 uid="uid://cwl7wyd0ypti6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1klyg"]
+[ext_resource type="Texture2D" uid="uid://dhhjlo8h3ff3c" path="res://assets/background_maingame.png" id="2_d0xf8"]
+[ext_resource type="Texture2D" uid="uid://bvki5ct5mlrsd" path="res://icon.svg" id="2_djc86"]
+[ext_resource type="LabelSettings" uid="uid://dke6xwqolx1k7" path="res://scenes/label_username.tres" id="4_jm4wr"]
 
-[node name="main" type="Control"]
+[node name="mainGame" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,29 +14,149 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1klyg")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 86.0
-offset_top = 49.0
-offset_right = 166.0
-offset_bottom = 80.0
-text = "make sth"
+[node name="background_illustration" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d0xf8")
 
-[node name="Label" type="Label" parent="."]
+[node name="global_container" type="HSplitContainer" parent="."]
 layout_mode = 0
-offset_left = 87.0
-offset_top = 21.0
-offset_right = 127.0
-offset_bottom = 44.0
-text = "0"
+offset_right = 1920.0
+offset_bottom = 1080.0
+split_offset = 570
+
+[node name="MarginContainer" type="MarginContainer" parent="global_container"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="player_pannel" type="VBoxContainer" parent="global_container/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="center_p_info" type="CenterContainer" parent="global_container/MarginContainer/player_pannel"]
+layout_mode = 2
+
+[node name="player_info" type="HBoxContainer" parent="global_container/MarginContainer/player_pannel/center_p_info"]
+layout_mode = 2
+
+[node name="player_pic" type="TextureRect" parent="global_container/MarginContainer/player_pannel/center_p_info/player_info"]
+layout_mode = 2
+texture = ExtResource("2_djc86")
+
+[node name="player_name" type="Label" parent="global_container/MarginContainer/player_pannel/center_p_info/player_info"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "tan.mp4"
+label_settings = ExtResource("4_jm4wr")
+
+[node name="listeners_stats" type="HBoxContainer" parent="global_container/MarginContainer/player_pannel"]
+layout_mode = 2
+alignment = 2
+
+[node name="logo_listeners" type="TextureRect" parent="global_container/MarginContainer/player_pannel/listeners_stats"]
+layout_mode = 2
+texture = ExtResource("2_djc86")
+
+[node name="number_of_listeners" type="Label" parent="global_container/MarginContainer/player_pannel/listeners_stats"]
+layout_mode = 2
+text = "6.185.351.435"
+
+[node name="instrument_container" type="VBoxContainer" parent="global_container"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TabContainer2" type="TabContainer" parent="global_container/instrument_container/MarginContainer"]
+layout_mode = 2
+
+[node name="piano" type="VBoxContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2"]
+layout_mode = 2
+
+[node name="global_piano" type="VBoxContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano"]
+layout_mode = 2
+
+[node name="piano_notes" type="Label" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano/global_piano"]
+layout_mode = 2
+
+[node name="piano_click" type="TextureButton" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano/global_piano"]
+layout_mode = 2
+texture_normal = ExtResource("2_djc86")
+
+[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano/MarginContainer"]
+layout_mode = 2
+text = "super super"
+
+[node name="bass" type="VBoxContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2"]
+visible = false
+layout_mode = 2
+
+[node name="global_bass" type="VBoxContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass"]
+layout_mode = 2
+
+[node name="bass_notes" type="Label" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass/global_bass"]
+layout_mode = 2
+
+[node name="bass_clicks" type="TextureButton" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass/global_bass"]
+layout_mode = 2
+texture_normal = ExtResource("2_djc86")
+
+[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass/MarginContainer"]
+layout_mode = 2
+text = "super super"
 
 [node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 821.0
-offset_top = 52.0
-offset_right = 931.0
-offset_bottom = 90.0
+layout_mode = 2
+offset_left = 732.0
+offset_top = 452.0
+offset_right = 1142.0
+offset_bottom = 575.0
 text = "multiplier 1"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="note_clicker" type="Button" parent="."]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1318.0
+offset_top = 441.0
+offset_right = -202.0
+offset_bottom = -502.0
+text = "make sth"
+
+[node name="notes_counter" type="Label" parent="."]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1510.0
+offset_top = 23.0
+offset_right = -46.0
+offset_bottom = -1031.0
+text = "0"
+
 [connection signal="visibility_changed" from="Button2" to="." method="_on_button_2_visibility_changed"]
+[connection signal="pressed" from="note_clicker" to="." method="_on_button_pressed"]
