@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwl7wyd0ypti6"]
+[gd_scene load_steps=6 format=3 uid="uid://cwl7wyd0ypti6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1klyg"]
 [ext_resource type="Texture2D" uid="uid://dhhjlo8h3ff3c" path="res://assets/background_maingame.png" id="2_d0xf8"]
 [ext_resource type="Texture2D" uid="uid://bvki5ct5mlrsd" path="res://icon.svg" id="2_djc86"]
 [ext_resource type="LabelSettings" uid="uid://dke6xwqolx1k7" path="res://scenes/label_username.tres" id="4_jm4wr"]
+[ext_resource type="StyleBox" uid="uid://dhk45ki80x5o" path="res://scenes/button_player_pannel.tres" id="5_gkgif"]
 
 [node name="mainGame" type="Control"]
 layout_mode = 3
@@ -36,127 +37,241 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
+[node name="ColorRect" type="ColorRect" parent="global_container/MarginContainer"]
+layout_mode = 2
+color = Color(0.894118, 0.847059, 0.796078, 0.623529)
+
 [node name="player_pannel" type="VBoxContainer" parent="global_container/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="center_p_info" type="CenterContainer" parent="global_container/MarginContainer/player_pannel"]
+[node name="MarginContainer" type="MarginContainer" parent="global_container/MarginContainer/player_pannel"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="center_p_info" type="CenterContainer" parent="global_container/MarginContainer/player_pannel/MarginContainer"]
 layout_mode = 2
 
-[node name="player_info" type="HBoxContainer" parent="global_container/MarginContainer/player_pannel/center_p_info"]
+[node name="player_info" type="HBoxContainer" parent="global_container/MarginContainer/player_pannel/MarginContainer/center_p_info"]
 layout_mode = 2
 
-[node name="player_pic" type="TextureRect" parent="global_container/MarginContainer/player_pannel/center_p_info/player_info"]
+[node name="player_pic" type="TextureRect" parent="global_container/MarginContainer/player_pannel/MarginContainer/center_p_info/player_info"]
 layout_mode = 2
 texture = ExtResource("2_djc86")
 
-[node name="player_name" type="Label" parent="global_container/MarginContainer/player_pannel/center_p_info/player_info"]
+[node name="MarginContainer" type="MarginContainer" parent="global_container/MarginContainer/player_pannel/MarginContainer/center_p_info/player_info"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="player_name" type="Label" parent="global_container/MarginContainer/player_pannel/MarginContainer/center_p_info/player_info/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "tan.mp4"
 label_settings = ExtResource("4_jm4wr")
 
-[node name="listeners_stats" type="HBoxContainer" parent="global_container/MarginContainer/player_pannel"]
+[node name="MarginContainer2" type="MarginContainer" parent="global_container/MarginContainer/player_pannel"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="listeners_stats" type="HBoxContainer" parent="global_container/MarginContainer/player_pannel/MarginContainer2"]
 layout_mode = 2
 alignment = 2
 
-[node name="logo_listeners" type="TextureRect" parent="global_container/MarginContainer/player_pannel/listeners_stats"]
+[node name="logo_listeners" type="TextureRect" parent="global_container/MarginContainer/player_pannel/MarginContainer2/listeners_stats"]
 layout_mode = 2
 texture = ExtResource("2_djc86")
 
-[node name="number_of_listeners" type="Label" parent="global_container/MarginContainer/player_pannel/listeners_stats"]
+[node name="MarginContainer" type="MarginContainer" parent="global_container/MarginContainer/player_pannel/MarginContainer2/listeners_stats"]
 layout_mode = 2
-text = "6.185.351.435"
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 60
+
+[node name="number_of_listeners" type="Label" parent="global_container/MarginContainer/player_pannel/MarginContainer2/listeners_stats/MarginContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="CenterContainer" type="CenterContainer" parent="global_container/MarginContainer/player_pannel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="global_container/MarginContainer/player_pannel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="global_container/MarginContainer/player_pannel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Button" type="Button" parent="global_container/MarginContainer/player_pannel/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("5_gkgif")
+text = "Single"
+icon_alignment = 1
+
+[node name="Button2" type="Button" parent="global_container/MarginContainer/player_pannel/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("5_gkgif")
+text = "EP"
+
+[node name="Button3" type="Button" parent="global_container/MarginContainer/player_pannel/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("5_gkgif")
+text = "Album"
+
+[node name="Button" type="Button" parent="global_container/MarginContainer/player_pannel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "CD"
+
+[node name="Button2" type="Button" parent="global_container/MarginContainer/player_pannel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spotify"
 
 [node name="instrument_container" type="VBoxContainer" parent="global_container"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container"]
+[node name="margin_note_counter" type="MarginContainer" parent="global_container/instrument_container"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="TabContainer2" type="TabContainer" parent="global_container/instrument_container/MarginContainer"]
+[node name="note_counter" type="Label" parent="global_container/instrument_container/margin_note_counter"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="margin_instrument" type="MarginContainer" parent="global_container/instrument_container"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="tab_instruments" type="TabContainer" parent="global_container/instrument_container/margin_instrument"]
 layout_mode = 2
 
-[node name="piano" type="VBoxContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2"]
+[node name="piano" type="VBoxContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments"]
 layout_mode = 2
 
-[node name="global_piano" type="VBoxContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano"]
+[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/piano"]
 layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="piano_notes" type="Label" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano/global_piano"]
+[node name="VBoxContainer" type="VBoxContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/piano/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 15
 
-[node name="piano_click" type="TextureButton" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano/global_piano"]
+[node name="global_piano" type="HBoxContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/piano/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="piano_click" type="TextureButton" parent="global_container/instrument_container/margin_instrument/tab_instruments/piano/MarginContainer/VBoxContainer/global_piano"]
 layout_mode = 2
 texture_normal = ExtResource("2_djc86")
 
-[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano"]
+[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/piano/MarginContainer/VBoxContainer/global_piano"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
-[node name="Button" type="Button" parent="global_container/instrument_container/MarginContainer/TabContainer2/piano/MarginContainer"]
+[node name="piano_notes" type="Label" parent="global_container/instrument_container/margin_instrument/tab_instruments/piano/MarginContainer/VBoxContainer/global_piano/MarginContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="global_container/instrument_container/margin_instrument/tab_instruments/piano/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "super super"
 
-[node name="bass" type="VBoxContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2"]
+[node name="Button2" type="Button" parent="global_container/instrument_container/margin_instrument/tab_instruments/piano/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ok ok"
+
+[node name="bass" type="VBoxContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments"]
 visible = false
 layout_mode = 2
 
-[node name="global_bass" type="VBoxContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass"]
-layout_mode = 2
-
-[node name="bass_notes" type="Label" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass/global_bass"]
-layout_mode = 2
-
-[node name="bass_clicks" type="TextureButton" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass/global_bass"]
-layout_mode = 2
-texture_normal = ExtResource("2_djc86")
-
-[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass"]
+[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/bass"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Button" type="Button" parent="global_container/instrument_container/MarginContainer/TabContainer2/bass/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/bass/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="global_bass" type="HBoxContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/bass/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="bass_click" type="TextureButton" parent="global_container/instrument_container/margin_instrument/tab_instruments/bass/MarginContainer/VBoxContainer/global_bass"]
+layout_mode = 2
+texture_normal = ExtResource("2_djc86")
+
+[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/bass/MarginContainer/VBoxContainer/global_bass"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="bass_notes" type="Label" parent="global_container/instrument_container/margin_instrument/tab_instruments/bass/MarginContainer/VBoxContainer/global_bass/MarginContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="global_container/instrument_container/margin_instrument/tab_instruments/bass/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "super super"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="global_container/instrument_container/margin_instrument/tab_instruments/bass/MarginContainer/VBoxContainer"]
 layout_mode = 2
-offset_left = 732.0
-offset_top = 452.0
-offset_right = 1142.0
-offset_bottom = 575.0
-text = "multiplier 1"
+text = "ok ok"
 
-[node name="note_clicker" type="Button" parent="."]
+[node name="drums" type="VBoxContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments"]
+visible = false
 layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1318.0
-offset_top = 441.0
-offset_right = -202.0
-offset_bottom = -502.0
-text = "make sth"
 
-[node name="notes_counter" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/drums"]
 layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1510.0
-offset_top = 23.0
-offset_right = -46.0
-offset_bottom = -1031.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/drums/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="global_drums" type="HBoxContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/drums/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="drums_click" type="TextureButton" parent="global_container/instrument_container/margin_instrument/tab_instruments/drums/MarginContainer/VBoxContainer/global_drums"]
+layout_mode = 2
+texture_normal = ExtResource("2_djc86")
+
+[node name="MarginContainer" type="MarginContainer" parent="global_container/instrument_container/margin_instrument/tab_instruments/drums/MarginContainer/VBoxContainer/global_drums"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="drums_notes" type="Label" parent="global_container/instrument_container/margin_instrument/tab_instruments/drums/MarginContainer/VBoxContainer/global_drums/MarginContainer"]
+layout_mode = 2
 text = "0"
 
-[connection signal="visibility_changed" from="Button2" to="." method="_on_button_2_visibility_changed"]
-[connection signal="pressed" from="note_clicker" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="global_container/instrument_container/margin_instrument/tab_instruments/drums/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "super super"
+
+[node name="Button2" type="Button" parent="global_container/instrument_container/margin_instrument/tab_instruments/drums/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ok ok"
+
+[connection signal="pressed" from="global_container/instrument_container/margin_instrument/tab_instruments/piano/MarginContainer/VBoxContainer/global_piano/piano_click" to="." method="_on_piano_click_pressed"]
+[connection signal="pressed" from="global_container/instrument_container/margin_instrument/tab_instruments/bass/MarginContainer/VBoxContainer/global_bass/bass_click" to="." method="_on_bass_click_pressed"]
