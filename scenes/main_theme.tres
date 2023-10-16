@@ -1,13 +1,14 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://0km6gvey6oby"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://0km6gvey6oby"]
 
 [ext_resource type="FontFile" uid="uid://ccctlgnghufqv" path="res://assets/Roboto/Roboto-Light.ttf" id="1_urcc0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_np1jf"]
+[ext_resource type="StyleBox" uid="uid://k5nwurf32wu3" path="res://assets/disable_button_style.tres" id="2_raymw"]
+[ext_resource type="StyleBox" uid="uid://blmyuwv1pyv2" path="res://assets/normal_button_style.tres" id="3_jd6v7"]
 
 [resource]
 Button/colors/font_color = Color(0.576471, 0.466667, 0.709804, 1)
 Button/colors/font_hover_color = Color(0.466667, 0.780392, 0.545098, 1)
 Button/fonts/font = ExtResource("1_urcc0")
-Button/styles/disabled = SubResource("StyleBoxFlat_np1jf")
+Button/styles/disabled = ExtResource("2_raymw")
+Button/styles/normal = ExtResource("3_jd6v7")
 Label/fonts/font = ExtResource("1_urcc0")
 TabContainer/fonts/font = ExtResource("1_urcc0")

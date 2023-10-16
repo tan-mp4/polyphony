@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwl7wyd0ypti6"]
+[gd_scene load_steps=10 format=3 uid="uid://cwl7wyd0ypti6"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_1klyg"]
 [ext_resource type="Texture2D" uid="uid://dhhjlo8h3ff3c" path="res://assets/background_maingame.png" id="2_d0xf8"]
@@ -6,6 +6,8 @@
 [ext_resource type="Theme" uid="uid://0km6gvey6oby" path="res://scenes/main_theme.tres" id="2_juipe"]
 [ext_resource type="LabelSettings" uid="uid://dke6xwqolx1k7" path="res://scenes/label_username.tres" id="4_jm4wr"]
 [ext_resource type="StyleBox" uid="uid://dhk45ki80x5o" path="res://scenes/button_player_pannel.tres" id="5_gkgif"]
+[ext_resource type="StyleBox" uid="uid://k5nwurf32wu3" path="res://assets/disable_button_style.tres" id="7_7dpj1"]
+[ext_resource type="StyleBox" uid="uid://blmyuwv1pyv2" path="res://assets/normal_button_style.tres" id="7_bkr5f"]
 
 [sub_resource type="Theme" id="Theme_58dxo"]
 TabContainer/fonts/font = null
@@ -126,6 +128,7 @@ text = "EP"
 
 [node name="album" type="Button" parent="global_container/MarginContainer/player_pannel/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_juipe")
 theme_override_styles/normal = ExtResource("5_gkgif")
 text = "Album"
 
@@ -133,9 +136,18 @@ text = "Album"
 layout_mode = 2
 text = "CD"
 
-[node name="Button2" type="Button" parent="global_container/MarginContainer/player_pannel/CenterContainer/VBoxContainer"]
+[node name="spotify" type="Button" parent="global_container/MarginContainer/player_pannel/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Spotify"
+theme = ExtResource("2_juipe")
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_styles/normal = ExtResource("7_bkr5f")
+theme_override_styles/disabled = ExtResource("7_7dpj1")
+disabled = true
+text = "
+Spotify
+
+"
 
 [node name="instrument_container" type="VBoxContainer" parent="global_container"]
 layout_mode = 2
